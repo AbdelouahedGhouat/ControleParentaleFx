@@ -66,7 +66,7 @@ public class EtudiantViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initHelper();
         initComboEcole();
-        initComboClasse();
+        
     }
 
         public void initHelper() {
@@ -81,20 +81,22 @@ public class EtudiantViewController implements Initializable {
         ecole.getItems().addAll(ecolePrives);
     }
 
+    @FXML
     public void initComboClasse() {
-         classe.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+         classe.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             setHelperList(newValue.getId());
         });
         classes=classeService.findAll();
         classe.getItems().addAll(classes);
     }
 
+    @FXML
     public void initComboParent() {
          parent.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             setHelperList(new Long(newValue.getId()));
         });
-       // parents=parentService.findAll();
-        classe.getItems().addAll(classes);
+       // parents= parentService.findByCin();
+        parent.getItems().addAll(parents);
     }
     
     private void setHelperList(Long parent) {
@@ -108,8 +110,10 @@ public class EtudiantViewController implements Initializable {
     private void setParam(Etudiant selected) {
         nom.setText(selected.getNom());
         prenom.setText(selected.getPrenom());
-//        ecole.setSelectedItem.getClasse().getEcolePrive().getNom());
-//        classe.setSelectedItem(selected.getClasse().getNom());
-//        parent.setSelectedItem(selected.getParent().getNom());
+        ecole.getValue().getNom();//setSelectedItem(selected.getClasse().getEcolePrive().getNom());
+        classe.getValue().getEcolePrive().getNom();     //setSelectedItem(selected.getClasse().getNom());
+        parent.getValue(); //setSelectedItem(selected.getParent().getNom());
+        
+       
     }
 }

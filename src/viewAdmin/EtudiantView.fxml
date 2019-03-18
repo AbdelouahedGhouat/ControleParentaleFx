@@ -18,8 +18,8 @@
             <Image url="@../image/img.jpg" />
          </image>
       </ImageView>
-      <ComboBox fx:id="ecole" layoutX="109.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
-      <ComboBox fx:id="classe" layoutX="302.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
+      <ComboBox fx:id="ecole" layoutX="109.0" layoutY="50.0" onAction="#initComboClasse" prefHeight="25.0" prefWidth="100.0" />
+      <ComboBox fx:id="classe" layoutX="302.0" layoutY="50.0" onAction="#initComboParent" prefHeight="25.0" prefWidth="100.0" />
       <ComboBox fx:id="parent" layoutX="513.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
       <Label layoutX="50.0" layoutY="54.0" text="Ecole :" textOverrun="CLIP">
          <font>
