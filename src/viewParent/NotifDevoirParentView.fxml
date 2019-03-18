@@ -48,7 +48,7 @@
             <Font name="Algerian" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="462.0" layoutY="132.0" text="Note/20: ">
+      <Label layoutX="462.0" layoutY="140.0" text="Note/20: ">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
@@ -59,11 +59,11 @@
          </font>
       </Label>
       <TextArea fx:id="Jarea" layoutX="224.0" layoutY="219.0" prefHeight="113.0" prefWidth="324.0" />
-      <Label fx:id="etudiant" layoutX="133.0" layoutY="62.0" prefHeight="17.0" prefWidth="59.0" />
-      <Label fx:id="classe" layoutX="331.0" layoutY="55.0" prefHeight="17.0" prefWidth="66.0" />
+      <Label fx:id="etudiant" layoutX="133.0" layoutY="62.0" prefHeight="17.0" prefWidth="108.0" />
+      <Label fx:id="classe" layoutX="331.0" layoutY="55.0" prefHeight="17.0" prefWidth="96.0" />
       <Label fx:id="ecole" layoutX="517.0" layoutY="54.0" prefHeight="17.0" prefWidth="66.0" />
       <Label fx:id="matiere" layoutX="133.0" layoutY="145.0" prefHeight="17.0" prefWidth="96.0" />
-      <Label fx:id="dateD" layoutX="331.0" layoutY="138.0" prefHeight="17.0" prefWidth="66.0" />
-      <Label fx:id="note" layoutX="534.0" layoutY="130.0" prefHeight="17.0" prefWidth="82.0" />
+      <Label fx:id="dateD" layoutX="331.0" layoutY="138.0" prefHeight="17.0" prefWidth="108.0" />
+      <Label fx:id="note" layoutX="540.0" layoutY="139.0" prefHeight="17.0" prefWidth="82.0" />
    </children>
 </Pane>

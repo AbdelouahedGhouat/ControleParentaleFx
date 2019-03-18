@@ -106,7 +106,7 @@ public class Matiere implements Serializable {
 
     @Override
     public String toString() {
-        return nom;
+        return ""+nom;
     }
     
 }

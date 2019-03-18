@@ -14,12 +14,12 @@
             <Image url="@../image/;;.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="admin" layoutX="135.0" layoutY="127.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="331.0" style="-fx-background-color: #02c6d8;" text="Espace Administration" textFill="WHITE">
+      <Button fx:id="admin" layoutX="135.0" layoutY="127.0" mnemonicParsing="false" onAction="#Admin" prefHeight="72.0" prefWidth="331.0" style="-fx-background-color: #02c6d8;" text="Espace Administration" textFill="WHITE">
          <font>
             <Font name="Agency FB Bold" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="parent" layoutX="135.0" layoutY="224.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="331.0" style="-fx-background-color: #02c6d8;" text="Espace Parents" textFill="WHITE">
+      <Button fx:id="parent" layoutX="135.0" layoutY="224.0" mnemonicParsing="false" onAction="#Patentt" prefHeight="72.0" prefWidth="331.0" style="-fx-background-color: #02c6d8;" text="Espace Parents" textFill="WHITE">
          <font>
             <Font name="Agency FB Bold" size="36.0" />
          </font>
