@@ -50,6 +50,8 @@ public class ClassViewController implements Initializable {
     ClasseService classeService = new ClasseService();
     ClasseFxHelper classeFxHelper;
     List<Classe> classes;
+    @FXML
+    private Button retour;
     
 
 
@@ -122,6 +124,10 @@ public class ClassViewController implements Initializable {
         ecolePrives = ecolePriveService.findAll();
         ecole.getItems().addAll(ecolePrives);
         
+    }
+
+    @FXML
+    private void Retour(ActionEvent event) {
     }
 
   

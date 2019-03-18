@@ -7,6 +7,7 @@ package viewAdmin;
 
 import bean.Evenement;
 import bean.NotifEvent;
+import helperfx.EventNotifFxHelper;
 import helperfx.NotifEventFxHelper;
 import java.net.URL;
 import java.util.List;
@@ -30,9 +31,9 @@ public class EventNotifViewController implements Initializable {
     private Button retour;
 
     Evenement e = (Evenement) Session.getAttribut("event");
-    NotifEventService notifEventService = new NotifEventService();
+   NotifEventService notifEventService = new NotifEventService();
     List<NotifEvent> notifEvents;
-    NotifEventFxHelper eventNotifHelper;
+    EventNotifFxHelper eventNotifFxHelper;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,9 +42,8 @@ public class EventNotifViewController implements Initializable {
     }
 
     public void initHelper() {
-
 //        notifEvents = notifEventService.findByEvent(e.getId());
-//        eventNotifHelper = new NotifEventFxHelper(tab, notifEvents);
+//        eventNotifFxHelper = new EventNotifFxHelper(tab, notifEvents);
     }
 
 }

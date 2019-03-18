@@ -1,11 +1,9 @@
 package helperfx;
 
 import bean.Devoir;
-import java.util.Date;
 import java.util.List;
 
 import javafx.scene.control.TableView;
-import util.DateUtil;
 
 public class DevoirFxHelper extends AbstractFxHelper<Devoir> {
 
@@ -14,8 +12,7 @@ public class DevoirFxHelper extends AbstractFxHelper<Devoir> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("Date des devoirs ", "date"),
-            new AbstractFxHelperItem("Devoir ", "mat")};
+             new AbstractFxHelperItem("Date des devoirs ", "date") };
     }
 
     public DevoirFxHelper(TableView<Devoir> table, List<Devoir> list) {

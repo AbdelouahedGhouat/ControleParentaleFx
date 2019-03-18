@@ -35,31 +35,31 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <TableView fx:id="tab" layoutX="112.0" layoutY="200.0" onMouseClicked="#click" prefHeight="107.0" prefWidth="415.0" />
-      <Button fx:id="ajouter" layoutX="267.0" layoutY="348.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="61.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
+      <TableView fx:id="tab" layoutX="112.0" layoutY="200.0" onMouseClicked="#click" onSort="#initHelper" prefHeight="107.0" prefWidth="415.0" />
+      <Button fx:id="ajouter" layoutX="267.0" layoutY="348.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="27.0" prefWidth="69.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font name="Agency FB Bold" size="14.0" />
+            <Font name="Agency FB Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="modifier" layoutX="352.0" layoutY="348.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier">
+      <Button fx:id="modifier" layoutX="352.0" layoutY="348.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="27.0" prefWidth="69.0" text="Modifier">
          <font>
-            <Font name="Agency FB Bold" size="14.0" />
+            <Font name="Agency FB Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="supprimer" layoutX="431.0" layoutY="348.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer">
+      <Button fx:id="supprimer" layoutX="439.0" layoutY="348.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer">
          <font>
-            <Font name="Agency FB Bold" size="14.0" />
+            <Font name="Agency FB Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="info" layoutX="513.0" layoutY="348.0" mnemonicParsing="false" onAction="#Info" text="plus d'info">
+      <Button fx:id="info" layoutX="529.0" layoutY="348.0" mnemonicParsing="false" onAction="#Info" text="plus d'info">
          <font>
-            <Font name="Agency FB Bold" size="14.0" />
+            <Font name="Agency FB Bold" size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -69,5 +69,6 @@
             <Font name="Algerian" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="retour" layoutX="40.0" layoutY="375.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
    </children>
 </Pane>

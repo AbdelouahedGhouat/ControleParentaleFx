@@ -17,12 +17,6 @@
          </image>
       </ImageView>
       <Label layoutX="237.0" layoutY="54.0" textOverrun="CLIP" />
-      <TableView fx:id="tab" layoutX="115.0" layoutY="153.0" prefHeight="185.0" prefWidth="431.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
       <Label layoutX="50.0" layoutY="109.0" prefHeight="16.0" prefWidth="448.0" text="Plus d'informations sur les evenments :">
          <font>
             <Font name="Algerian" size="14.0" />
@@ -33,5 +27,12 @@
             <Font name="Agency FB Bold" size="13.0" />
          </font>
       </Button>
+      <TableView fx:id="tab" layoutX="94.0" layoutY="165.0" prefHeight="134.0" prefWidth="448.0">
+        <columns>
+          <TableColumn prefWidth="118.0" text="Nom d'étudiant" />
+          <TableColumn prefWidth="167.0" text="Description " />
+            <TableColumn prefWidth="167.0" text="Date Lecture  Event" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

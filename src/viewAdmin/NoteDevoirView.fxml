@@ -35,12 +35,6 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <TableView fx:id="tab" layoutX="124.0" layoutY="212.0" prefHeight="105.0" prefWidth="409.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
       <Button fx:id="ajouter" layoutX="349.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Agency FB Bold" size="15.0" />
@@ -85,5 +79,11 @@
             <Font name="Agency FB Bold" size="13.0" />
          </font>
       </Button>
+      <TableView fx:id="tab" layoutX="175.0" layoutY="211.0" prefHeight="106.0" prefWidth="301.0">
+        <columns>
+          <TableColumn prefWidth="134.0" text="Nom de l'étudiant" />
+          <TableColumn prefWidth="166.0" text="Note devoir selectionné" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

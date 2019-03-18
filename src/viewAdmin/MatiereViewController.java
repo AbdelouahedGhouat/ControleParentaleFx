@@ -61,12 +61,13 @@ public class MatiereViewController implements Initializable {
         initComboClasse();
     }
     public void initEcoles() {
+        ecole.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            setHelperList(newValue.getId());
+        });
         ecolePrives = ecolePriveService.findAll();
-        for (EcolePrive e : ecolePrives) {
-           // classe.addItem(e.getNom());
-        }
+        ecole.getItems().addAll(ecolePrives);
     }
-
+    
     public void initHelper() {
         matiereHelper = new MatiereFxHelper(tab);
     }
@@ -77,13 +78,6 @@ public class MatiereViewController implements Initializable {
     }
 
     public void initComboClasse() {
-//        classe.addItemListener((ie) -> {
-//            String item = (String) ie.getItem();
-//            for (Classe c : classes) {
-//                if (item.equals(c.getNom())) {
-//                    setHelperList(c.getId());
-//                }
-//            }
-//        });
+
     }
 }

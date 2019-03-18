@@ -27,23 +27,23 @@ public class NotifDevoirFxHelper extends AbstractFxHelper<NotifDevoir> {
         super(titres, table);
     }
     
-//    @Override
-//    public Object getValueAt(int rowIndex, int columnIndex) {
-//        if (list != null && rowIndex < list.size()) {
-//            NotifDevoir notifDevoir = list.get(rowIndex);
-//            if (columnIndex == 0) {
-//                return notifDevoir.getNotedevoir().getDevoir().getMatiere().getNom();
-//            }
-//            if (columnIndex == 1) {
-//                Date date = notifDevoir.getNotedevoir().getDevoir().getDate();
-//                if (date!= null) {
-//                    return DateUtil.formateDate("dd/MM/yyyy HH:mm", date);
-//                }
-//            } else {
-//                return super.getValueAt(rowIndex, columnIndex);
-//            }
-//        }
-//        return "";
-//    }
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        if (list != null && rowIndex < list.size()) {
+            NotifDevoir notifDevoir = list.get(rowIndex);
+            if (columnIndex == 0) {
+                return notifDevoir.getNotedevoir().getDevoir().getMatiere().getNom();
+            }
+            if (columnIndex == 1) {
+                Date date = notifDevoir.getNotedevoir().getDevoir().getDate();
+                if (date!= null) {
+                    return DateUtil.formateDate("dd/MM/yyyy HH:mm", date);
+                }
+            } else {
+                return super.getValueAt(rowIndex, columnIndex);
+            }
+        }
+        return "";
+    }
 
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,6 @@
          </image>
       </ImageView>
       <Label layoutX="237.0" layoutY="54.0" textOverrun="CLIP" />
-      <TableView fx:id="tab" layoutX="115.0" layoutY="153.0" prefHeight="185.0" prefWidth="431.0" />
       <Label layoutX="50.0" layoutY="109.0" prefHeight="16.0" prefWidth="448.0" text="Plus d'informations sur le devoir selectionné :">
          <font>
             <Font name="Algerian" size="14.0" />
@@ -27,5 +27,13 @@
             <Font name="Agency FB Bold" size="13.0" />
          </font>
       </Button>
+      <TableView fx:id="tab" layoutX="147.0" layoutY="165.0" prefHeight="143.0" prefWidth="370.0">
+        <columns>
+          <TableColumn prefWidth="100.0" text="Nom d'etudiant" />
+          <TableColumn prefWidth="85.0" text="Description" />
+            <TableColumn prefWidth="93.0" text="Date Lecture" />
+            <TableColumn prefWidth="91.0" text="Note devoir" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

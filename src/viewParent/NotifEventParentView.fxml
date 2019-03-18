@@ -17,7 +17,7 @@
          </image>
       </ImageView>
       <Label layoutX="237.0" layoutY="54.0" textOverrun="CLIP" />
-      <Label layoutX="65.0" layoutY="63.0" text="Etudiant;">
+      <Label layoutX="21.0" layoutY="63.0" text="Etudiant;">
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
@@ -28,7 +28,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="262.0" layoutY="63.0" text="Classe :">
+      <Label layoutX="255.0" layoutY="63.0" text="Classe :">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
@@ -38,12 +38,12 @@
             <Font name="Algerian" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="147.0" text="Nom event:">
+      <Label layoutX="23.0" layoutY="147.0" text="Nom event:">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="466.0" layoutY="147.0" text="date;">
+      <Label layoutX="461.0" layoutY="147.0" text="date;">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
@@ -58,13 +58,13 @@
             <Font name="Algerian" size="13.0" />
          </font>
       </Label>
-      <TextArea fx:id="descParent" layoutX="339.0" layoutY="237.0" prefHeight="103.0" prefWidth="285.0" />
-      <Label fx:id="etudiant" layoutX="133.0" layoutY="62.0" prefHeight="18.0" prefWidth="113.0" />
+      <TextArea fx:id="descParent" layoutX="335.0" layoutY="241.0" prefHeight="103.0" prefWidth="285.0" />
+      <Label fx:id="etudiant" layoutX="93.0" layoutY="63.0" prefHeight="18.0" prefWidth="127.0" />
       <Label fx:id="classe" layoutX="331.0" layoutY="61.0" prefHeight="18.0" prefWidth="75.0" />
-      <Label fx:id="ecole" layoutX="515.0" layoutY="61.0" prefHeight="18.0" prefWidth="82.0" />
-      <Label fx:id="nomE" layoutX="133.0" layoutY="145.0" prefHeight="17.0" prefWidth="96.0" />
-      <Label fx:id="dateE" layoutX="515.0" layoutY="145.0" prefHeight="18.0" prefWidth="82.0" />
-      <Label fx:id="type" layoutX="331.0" layoutY="145.0" prefHeight="18.0" prefWidth="96.0" />
+      <Label fx:id="ecole" layoutX="515.0" layoutY="61.0" prefHeight="18.0" prefWidth="96.0" />
+      <Label fx:id="nomE" layoutX="93.0" layoutY="145.0" prefHeight="18.0" prefWidth="136.0" />
+      <Label fx:id="dateE" layoutX="501.0" layoutY="145.0" prefHeight="18.0" prefWidth="150.0" />
+      <Label fx:id="type" layoutX="331.0" layoutY="145.0" prefHeight="18.0" prefWidth="106.0" />
       <Label layoutX="30.0" layoutY="211.0" text="Description d'evenement :">
          <font>
             <Font name="Algerian" size="13.0" />

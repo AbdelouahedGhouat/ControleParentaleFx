@@ -28,7 +28,6 @@ import util.Session;
  */
 public class DevoirNotifViewController implements Initializable {
 
-    @FXML
     private TableView<NotifDevoir> tab;
     @FXML
     private Button retour;

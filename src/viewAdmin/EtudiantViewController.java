@@ -12,6 +12,7 @@ import helperfx.EtudiantFxHelper;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -61,6 +62,8 @@ public class EtudiantViewController implements Initializable {
     ClasseService classeService = new ClasseService();
     ParentService parentService = new ParentService();
     EtudiantService etudiantService = new EtudiantService();
+    @FXML
+    private Button retour;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,16 +86,16 @@ public class EtudiantViewController implements Initializable {
 
     @FXML
     public void initComboClasse() {
-         classe.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            setHelperList(newValue.getId());
-        });
-        classes=classeService.findAll();
+//         classe.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+//            setHelperList(newValue.getId());
+//        });
+        classes=classeService.findByEcole(ecole.getValue().getId());
         classe.getItems().addAll(classes);
     }
 
     @FXML
     public void initComboParent() {
-         parent.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+         parent.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             setHelperList(new Long(newValue.getId()));
         });
        // parents= parentService.findByCin();
@@ -115,5 +118,9 @@ public class EtudiantViewController implements Initializable {
         parent.getValue(); //setSelectedItem(selected.getParent().getNom());
         
        
+    }
+
+    @FXML
+    private void Retour(ActionEvent event) {
     }
 }

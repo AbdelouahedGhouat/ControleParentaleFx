@@ -68,5 +68,6 @@
       </Label>
       <TextField fx:id="nom" layoutX="254.0" layoutY="125.0" />
       <TextField fx:id="prenom" layoutX="254.0" layoutY="161.0" />
+      <Button fx:id="retour" layoutX="32.0" layoutY="382.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
    </children>
 </Pane>

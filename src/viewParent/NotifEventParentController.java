@@ -50,21 +50,22 @@ public class NotifEventParentController implements Initializable {
     NotifEventService notifEventService = new NotifEventService();
 
     public void initInfo() {
-        NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
+       NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
         if (notifEvent != null) {
             etudiant.setText(notifEvent.getEtudiant().getNom() + " " + notifEvent.getEtudiant().getPrenom());
             classe.setText(notifEvent.getEvenement().getClasse().getNom());
             ecole.setText(notifEvent.getEvenement().getClasse().getEcolePrive().getNom());
             nomE.setText(notifEvent.getEvenement().getNom());
             dateE.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifEvent.getEvenement().getDate()));
-            type.setText(notifEvent.getEvenement().getTypeEvent().getType() + "");
+            type.setText(notifEvent.getEvenement().getTypeEvent().getType()+ "");
             descParent.setText(notifEvent.getDescription());
             descEvent.setText(notifEvent.getEvenement().getDescription());
-
+            
         }
     }
 
     public void initialize(URL location, ResourceBundle resources) {
+        initInfo();
     }
 
     @FXML

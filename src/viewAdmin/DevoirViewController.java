@@ -74,6 +74,8 @@ public class DevoirViewController implements Initializable {
     ObservableList<String> listEcole = FXCollections.observableArrayList();
     ObservableList<String> listClasse = FXCollections.observableArrayList();
     ObservableList<String> listMatiere = FXCollections.observableArrayList();
+    @FXML
+    private Button retour;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -196,6 +198,10 @@ public class DevoirViewController implements Initializable {
 //        if(d!=null){
 //        Session.updateAttribute(d, "devoir");    
         //  }
+    }
+
+    @FXML
+    private void Retour(ActionEvent event) {
     }
 
 }

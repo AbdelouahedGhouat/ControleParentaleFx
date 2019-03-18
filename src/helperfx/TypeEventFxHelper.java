@@ -12,7 +12,7 @@ public class TypeEventFxHelper extends AbstractFxHelper<TypeEvent> {
 
     static {
 
-       titres = new AbstractFxHelperItem[]{
+        titres = new AbstractFxHelperItem[]{   
             new AbstractFxHelperItem("Type d'événement ", "type")
         };
     }

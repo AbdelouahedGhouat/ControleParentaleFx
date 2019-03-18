@@ -70,7 +70,16 @@ public class AcceuillParentController implements Initializable {
 
     @FXML
     private void Deconnection(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ConnectionParent.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -135,9 +144,9 @@ public class AcceuillParentController implements Initializable {
     @FXML
     public void initComboBox1() {
         Parent p = (Parent) Session.getAttribut("connectedParent");
-//        etudiant.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-//            setHelperList(newValue.getId());
-//        });
+        etudiant.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            setHelperList(newValue.getId());
+        });
         etudiants = etudiantService.findByParent(p.getCin());
         etudiant.getItems().clear();
         etudiant.getItems().addAll(etudiants);

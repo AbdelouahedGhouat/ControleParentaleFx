@@ -49,8 +49,6 @@ public class EventViewController implements Initializable {
     @FXML
     private ComboBox<TypeEvent> type;
     @FXML
-    private DatePicker dates;
-    @FXML
     private TableView tab;
     @FXML
     private Button ajouter;
@@ -76,6 +74,8 @@ public class EventViewController implements Initializable {
     EcolePriveService ecolePriveService = new EcolePriveService();
     ClasseService classeService = new ClasseService();
     TypeEventService typeEventService = new TypeEventService();
+    @FXML
+    private DatePicker date;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
