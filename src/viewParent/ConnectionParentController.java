@@ -6,15 +6,20 @@
 package viewParent;
 
 import bean.Parent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import service.ParentService;
 import util.Session;
 
@@ -44,6 +49,17 @@ public class ConnectionParentController implements Initializable {
             Session.updateAttribute(p, "connectedParent");
             AdaptedAlert alert = new AdaptedAlert(AdaptedAlert.AlertType.INFORMATION, null, "Succes", "CONNECTION AVEC SUCCES BIENVENU : " + p.getNom());
             alert.showAndWait();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
+                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+                Stage nextStage = new Stage();
+                nextStage.setScene(new Scene(root1));
+                nextStage.show();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         } else if (i == -1) {
             AdaptedAlert alert = new AdaptedAlert(AdaptedAlert.AlertType.WARNING, null, "Succes", "Ce CIN N'EXISTE PAS");
             alert.showAndWait();
@@ -66,7 +82,4 @@ public class ConnectionParentController implements Initializable {
         return p;
     }
 
-  
-
-   
 }

@@ -118,9 +118,8 @@ public class Etudiant implements Serializable {
         return true;
     }
 
-    @Override
+     @Override
     public String toString() {
-        return "bean.Etudient[ id=" + id + " ]";
+        return ""+prenom;
     }
-    
 }
