@@ -85,7 +85,7 @@ public class Classe implements Serializable {
 
     @Override
     public String toString() {
-        return "Classe{" + "id=" + id + ", nom=" + nom + ", ecolePrive=" + ecolePrive + '}';
+        return ""+nom;
     }
 
 }

@@ -139,7 +139,7 @@ public class Parent implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Parent[ id=" + id + " ]";
+        return ""+prenom+""+nom;
     }
     
 }

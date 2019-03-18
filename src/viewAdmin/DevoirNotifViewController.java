@@ -46,11 +46,12 @@ public class DevoirNotifViewController implements Initializable {
     }
 
      public void initHelper(){
-        notifDevoirs = notifDevoirService.findByDevoir(d.getId());
-        devoirNotifFxHelper = new DevoirNotifFxHelper(tab, notifDevoirs);
+//        notifDevoirs = notifDevoirService.findByDevoir(d.getId());
+//        devoirNotifFxHelper = new DevoirNotifFxHelper(tab, notifDevoirs);
     }
     @FXML
     private void Retour(ActionEvent event) {
+        
     }
 
  

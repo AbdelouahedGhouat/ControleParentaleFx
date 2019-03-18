@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,9 +42,9 @@ import util.Session;
 public class DevoirViewController implements Initializable {
 
     @FXML
-    private ComboBox<EcolePrive> ecole;
+    private ComboBox<String> ecole;
     @FXML
-    private ComboBox<Classe> classe;
+    private ComboBox<String> classe;
     @FXML
     private TableView<Devoir> tab;
     @FXML
@@ -53,13 +55,12 @@ public class DevoirViewController implements Initializable {
     private Button supprimer;
 
     @FXML
-    private ComboBox<Matiere> matiere;
+    private ComboBox<String> matiere;
     @FXML
     private DatePicker date;
     @FXML
     private Button info;
 
-        
     List<EcolePrive> ecolePrives;
     EcolePriveService ecolePriveService = new EcolePriveService();
     DevoirService devoirService = new DevoirService();
@@ -69,22 +70,65 @@ public class DevoirViewController implements Initializable {
     ClasseService classeService = new ClasseService();
     MatiereService matiereService = new MatiereService();
     List<Devoir> devoirs;
-    EcoleFxHelper ecoleFxHelper;
 
-    
+    ObservableList<String> listEcole = FXCollections.observableArrayList();
+    ObservableList<String> listClasse = FXCollections.observableArrayList();
+    ObservableList<String> listMatiere = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initSelected();
         initEcoles();
-        initHelper();
+
     }
-    
-     public void initEcoles() {
-         ecole.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-            setHelperList(newValue.getId());
-        });
-        ecolePrives = ecolePriveService.findAll();
-        ecole.getItems().addAll(ecolePrives);
+
+    public void initEcoles() {
+//         ecole.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+//            setHelperList(newValue.getId());
+//        });
+//        ecolePrives = ecolePriveService.findAll();
+//        ecole.getItems().addAll(ecolePrives);
+
+        listEcole.add("EL Bachir");
+        listEcole.add("AL Manal");
+        ecole.setItems(listEcole);
+    }
+
+    @FXML
+    public void initClasse() {
+        if (ecole.getValue().equals("EL Bachir")) {
+            listClasse.clear();
+            listClasse.add("CP");
+            listClasse.add("CE1");
+            listClasse.add("CE2");
+        } else if (ecole.getValue().equals("AL Manal")) {
+            listClasse.clear();
+            listClasse.add("CE1");
+            listClasse.add("CE2");
+            listClasse.add("CP");
+        } else {
+            listClasse.clear();
+
+        }
+        classe.setItems(listClasse);
+    }
+
+    @FXML
+    public void initComboMatiere() {
+
+        if (classe.getValue().equals("CP") &&ecole.getValue().equals("EL Bachir")) {
+            listMatiere.clear();
+            listMatiere.add("Math");
+            listMatiere.add("Physique");
+            listMatiere.add("Info");
+        } else if (classe.getValue().equals("CE1") && ecole.getValue().equals("AL Manal")) {
+            listMatiere.clear();
+            listMatiere.add("Info");
+            listMatiere.add("Math");
+        } else {
+            listMatiere.clear();
+
+        }
+           matiere.setItems(listMatiere);
     }
 
     public void initHelper() {
@@ -96,42 +140,16 @@ public class DevoirViewController implements Initializable {
         devoirFxHelper.setList(devoirs);
     }
 
-    public void initComboMatiere() {
-        matiere.valueProperty().addListener((ie) -> {
-            String item = (String) ie.toString();
-            for (Matiere ma : matieres) {
-                if (item.equals(ma.getNom())) {
-                    setHelperList(ma.getId());
-                }
-            }
-        });
-    }
-
 //    public void remplireCases(Devoir d) {
 //        ecole.setSelectedItem(d.getMatiere().getClasse().getEcolePrive().getNom());
 //        classe.setSelectedItem(d.getMatiere().getClasse().getNom());
 //        matiere.setSelectedItem(d.getMatiere().getClasse().getNom());
-//        date.setDate(d.getDate());
+//        jdate.setDate(d.getDate());
 //
 //    }
-
-    
-     private void initSelected(){
-          Devoir d = (Devoir) Session.getAttribut("devoir");
-        if (d!=null) {
-           // remplireCases(d);
-            setHelperList(d.getId());
-        }
-    }
-
     @FXML
     private void click(MouseEvent event) {
-         EcolePrive e = ecoleFxHelper.getSelected();
-        classes = classeService.findByEcole(e.getId());
-        classe.getItems().removeAll();
-        for (Classe c : classes) {
-         //   classe.add(c.getNom());
-        }
+
     }
 
     @FXML
@@ -140,14 +158,14 @@ public class DevoirViewController implements Initializable {
 //            Date d = date.getDate();
 //            date = DateUtil.convertFromDateToTimestamp(d);
 //            Devoir d = new Devoir(date, matieres.get(matiere.getSelectedIndex()));
-//            int res = devoirService.creerDevoir(date, d.getMatiere());
-//            if (res == 1) {
-//                setHelperList(matieres.get(matiere.getSelectedIndex()).getId());
+           // int res = devoirService.creerDevoir(date, d.getMatiere());
+            //if (res == 1) {
+            //    setHelperList(matieres.get(matiere.getSelectedIndex()).getId());
 //                JOptionPane.showMessageDialog(null, "DEVOIR AJOUTER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
 //            } else {
 //                JOptionPane.showMessageDialog(null, "DEVOIR EXIST DEJA ", "ERROR", JOptionPane.ERROR_MESSAGE);
 //            }
-//        }
+//        
     }
 
     @FXML
@@ -164,17 +182,20 @@ public class DevoirViewController implements Initializable {
 
     @FXML
     private void Supprimer(ActionEvent event) {
-        
-            Devoir d = devoirFxHelper.getSelected();
-            devoirService.supprimer(d);
-//            date.setDate(null);
-//            setHelperList(matieres.get(matiere.getSelectedIndex()).getId());
-            JOptionPane.showMessageDialog(null, " DEVOIR EST SUPPRIMER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
+
+//            Devoir d = devoirFxHelper.getSelected();
+//            devoirService.supprimer(d);
+////            date.setDate(null);
+////            setHelperList(matieres.get(matiere.getSelectedIndex()).getId());
+//            JOptionPane.showMessageDialog(null, " DEVOIR EST SUPPRIMER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
     private void Info(ActionEvent event) {
+//        Devoir d = devoirFxHelper.getSelected();
+//        if(d!=null){
+//        Session.updateAttribute(d, "devoir");    
+        //  }
     }
-    
 
 }

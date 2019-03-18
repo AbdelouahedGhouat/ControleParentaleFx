@@ -54,7 +54,7 @@ public class NotifDevoirParentController implements Initializable {
             classe.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getClasse().getNom());
             ecole.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getClasse().getEcolePrive().getNom());
             matiere.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getNom());
-            dateD.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifDevoir.getNotedevoir().getDevoir().getDate()));
+           // dateD.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifDevoir.getNotedevoir().getDevoir().getDate()));
             note.setText(notifDevoir.getNotedevoir().getNote() + "");
             Jarea.setText(notifDevoir.getDescription());
 

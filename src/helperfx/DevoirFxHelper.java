@@ -1,6 +1,5 @@
 package helperfx;
 
-
 import bean.Devoir;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +14,8 @@ public class DevoirFxHelper extends AbstractFxHelper<Devoir> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-              new AbstractFxHelperItem("Date des devoirs ", "date") };
+            new AbstractFxHelperItem("Date des devoirs ", "date"),
+            new AbstractFxHelperItem("Devoir ", "mat")};
     }
 
     public DevoirFxHelper(TableView<Devoir> table, List<Devoir> list) {
@@ -25,22 +25,22 @@ public class DevoirFxHelper extends AbstractFxHelper<Devoir> {
     public DevoirFxHelper(TableView<Devoir> table) {
         super(titres, table);
     }
-     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list != null && rowIndex < list.size()) {
-            Devoir devoir = list.get(rowIndex);
-            
-            if (columnIndex == 0) {
-                Date date = devoir.getDate();
-                if (date!= null) {
-                    return DateUtil.formateDate("dd/MM/yyyy HH:mm", date);
-                }
-            } else {
-                return super.getValueAt(rowIndex, columnIndex);
-            }
-        }
-        return "";
-    }
-    
+//     @Override
+//    public Object getValueAt(int rowIndex, int columnIndex) {
+//        if (list != null && rowIndex < list.size()) {
+//            Devoir devoir = list.get(rowIndex);
+//            
+//            if (columnIndex == 0) {
+//                Date date = devoir.getDate();
+//                if (date!= null) {
+//                    return DateUtil.formateDate("dd/MM/yyyy HH:mm", date);
+//                }
+//            } else {
+//                return super.getValueAt(rowIndex, columnIndex);
+//            }
+//        }
+//        return "";
+//    }
+//    
 
 }

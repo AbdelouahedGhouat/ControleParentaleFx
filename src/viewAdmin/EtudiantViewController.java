@@ -7,7 +7,10 @@ package viewAdmin;
 
 import bean.Classe;
 import bean.EcolePrive;
+import bean.Etudiant;
+import helperfx.EtudiantFxHelper;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +19,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import service.ClasseService;
+import service.EcolePriveService;
+import service.EtudiantService;
+import service.ParentService;
 
 
 /**
@@ -32,7 +39,7 @@ public class EtudiantViewController implements Initializable {
     @FXML
     private ComboBox<Parent> parent;
     @FXML
-    private TableView tab;
+    private TableView<Etudiant> tab;
     @FXML
     private Button ajouter;
     @FXML
@@ -44,10 +51,65 @@ public class EtudiantViewController implements Initializable {
     @FXML
     private TextField prenom;
 
+    EtudiantFxHelper etudiantFxHelper;
+    List<EcolePrive> ecolePrives;
+    List<Classe> classes;
+    
+    List<Parent> parents ;
+    List<Etudiant> etudiants;
+    EcolePriveService ecolePriveService = new EcolePriveService();
+    ClasseService classeService = new ClasseService();
+    ParentService parentService = new ParentService();
+    EtudiantService etudiantService = new EtudiantService();
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initHelper();
+        initComboEcole();
+        initComboClasse();
     }
 
+        public void initHelper() {
+        etudiantFxHelper = new EtudiantFxHelper(tab);
+    }
+
+    public void initComboEcole() {
+         ecole.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            setHelperList(newValue.getId());
+        });
+        ecolePrives = ecolePriveService.findAll();
+        ecole.getItems().addAll(ecolePrives);
+    }
+
+    public void initComboClasse() {
+         classe.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            setHelperList(newValue.getId());
+        });
+        classes=classeService.findAll();
+        classe.getItems().addAll(classes);
+    }
+
+    public void initComboParent() {
+         parent.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            setHelperList(new Long(newValue.getId()));
+        });
+       // parents=parentService.findAll();
+        classe.getItems().addAll(classes);
+    }
+    
+    private void setHelperList(Long parent) {
+        etudiants = etudiantService.findByParentClasse(parent, ecole.getSelectionModel().getSelectedItem().getId());
+        etudiantFxHelper.setList(etudiants);
+        
+    }
    
 
+    
+    private void setParam(Etudiant selected) {
+        nom.setText(selected.getNom());
+        prenom.setText(selected.getPrenom());
+//        ecole.setSelectedItem.getClasse().getEcolePrive().getNom());
+//        classe.setSelectedItem(selected.getClasse().getNom());
+//        parent.setSelectedItem(selected.getParent().getNom());
+    }
 }
