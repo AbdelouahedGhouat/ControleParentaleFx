@@ -21,7 +21,7 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <Button fx:id="valider" layoutX="445.0" layoutY="362.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="136.0" text="Valider" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="valider" layoutX="445.0" layoutY="362.0" mnemonicParsing="false" onAction="#Valider" prefHeight="32.0" prefWidth="136.0" text="Valider" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Agency FB Bold" size="16.0" />
          </font>
@@ -58,7 +58,7 @@
             <Font name="Algerian" size="12.0" />
          </font>
       </Label>
-      <TextArea layoutX="224.0" layoutY="219.0" prefHeight="113.0" prefWidth="324.0" />
+      <TextArea fx:id="Jarea" layoutX="224.0" layoutY="219.0" prefHeight="113.0" prefWidth="324.0" />
       <Label fx:id="etudiant" layoutX="133.0" layoutY="62.0" prefHeight="17.0" prefWidth="59.0" />
       <Label fx:id="classe" layoutX="331.0" layoutY="55.0" prefHeight="17.0" prefWidth="66.0" />
       <Label fx:id="ecole" layoutX="517.0" layoutY="54.0" prefHeight="17.0" prefWidth="66.0" />

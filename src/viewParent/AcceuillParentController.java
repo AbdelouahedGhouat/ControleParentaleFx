@@ -12,6 +12,7 @@ import bean.Parent;
 import helperfx.EtudiantFxHelper;
 import helperfx.NotifDevoirFxHelper;
 import helperfx.NotifEventFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +21,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import service.EtudiantService;
 import service.NotifDevoirService;
 import service.NotifEventService;
@@ -83,6 +86,16 @@ public class AcceuillParentController implements Initializable {
             notifDevoirService.edit(notifDevoir);
         }
         Session.updateAttribute(notifDevoir, "notifDevoir");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NotifDevoirParentView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -94,8 +107,16 @@ public class AcceuillParentController implements Initializable {
             notifEventService.edit(notifEvent);
         }
         Session.updateAttribute(notifEvent, "notifEvent");
-//        FXMLLoader notifEventParentView = new FXMLLoader();
-//        notifEventParentView.getLocation();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NotifEventParentView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

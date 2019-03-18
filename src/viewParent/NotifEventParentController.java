@@ -5,17 +5,22 @@
  */
 package viewParent;
 
+import bean.NotifEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.TextFlow;
-
-
-
+import javafx.stage.Stage;
+import service.NotifEventService;
+import util.DateUtil;
+import util.Session;
 
 /**
  *
@@ -25,8 +30,6 @@ public class NotifEventParentController implements Initializable {
 
     @FXML
     private Button valider;
-    @FXML
-    private TextArea MyDesc;
     @FXML
     private Label etudiant;
     @FXML
@@ -40,14 +43,45 @@ public class NotifEventParentController implements Initializable {
     @FXML
     private Label type;
     @FXML
-    private TextFlow descEvent;
+    private TextArea descEvent;
+    @FXML
+    private TextArea descParent;
 
-   
+    NotifEventService notifEventService = new NotifEventService();
+
+    public void initInfo() {
+        NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
+        if (notifEvent != null) {
+            etudiant.setText(notifEvent.getEtudiant().getNom() + " " + notifEvent.getEtudiant().getPrenom());
+            classe.setText(notifEvent.getEvenement().getClasse().getNom());
+            ecole.setText(notifEvent.getEvenement().getClasse().getEcolePrive().getNom());
+            nomE.setText(notifEvent.getEvenement().getNom());
+            dateE.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifEvent.getEvenement().getDate()));
+            type.setText(notifEvent.getEvenement().getTypeEvent().getType() + "");
+            descParent.setText(notifEvent.getDescription());
+            descEvent.setText(notifEvent.getEvenement().getDescription());
+
+        }
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-   
-  
+    @FXML
+    private void Valider(ActionEvent event) {
+        NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
+        notifEvent.setDescription(descParent.getText());
+        notifEventService.edit(notifEvent);
+        try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
+                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+                Stage nextStage = new Stage();
+                nextStage.setScene(new Scene(root1));
+                nextStage.show();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
 
-   
 }
