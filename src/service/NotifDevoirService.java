@@ -9,6 +9,7 @@ import bean.Devoir;
 import bean.NoteDevoir;
 import bean.NotifDevoir;
 import java.util.List;
+import util.DateUtil;
 
 /**
  *
@@ -23,10 +24,16 @@ public class NotifDevoirService extends AbstractFacade<NotifDevoir> {
     }
 
     public List<NotifDevoir> findByEtudiant(Long id) {
-        return getEntityManager().createQuery("SELECT nd From NotifDevoir nd where nd.notedevoir.etudient.id=" + id).getResultList();
+        List<NotifDevoir> notifDevoirs = getEntityManager().createQuery("SELECT nd From NotifDevoir nd where nd.notedevoir.etudient.id=" + id).getResultList();
+        notifDevoirs.stream().forEach(d -> {
+            if (d.getDateLecture() != null) {
+                d.setDateLecture(DateUtil.convertFromDateToTimestamp(d.getDateLecture()));
+            }
+        });
+        return notifDevoirs;
     }
 
-   public void creer(Devoir d) {
+    public void creer(Devoir d) {
         List<NoteDevoir> noteDevoirs = noteDevoirService.creerNote(d);
         for (NoteDevoir noteDevoir : noteDevoirs) {
             NotifDevoir notifDevoir = new NotifDevoir();
@@ -43,8 +50,13 @@ public class NotifDevoirService extends AbstractFacade<NotifDevoir> {
         noteDevoirService.suppByDevoir(d);
     }
 
-    
-     public List<NotifDevoir> findByDevoir(Long id) {
-        return getEntityManager().createQuery("SELECT n FROM NotifDevoir n WHERE n.notedevoir.devoir.id=" + id).getResultList();
+    public List<NotifDevoir> findByDevoir(Long id) {
+        List<NotifDevoir> notifDevoirs = getEntityManager().createQuery("SELECT n FROM NotifDevoir n WHERE n.notedevoir.devoir.id=" + id).getResultList();
+        notifDevoirs.stream().forEach(d -> {
+            if (d.getDateLecture() != null) {
+                d.setDateLecture(DateUtil.convertFromDateToTimestamp(d.getDateLecture()));
+            }
+        });
+        return notifDevoirs;
     }
 }

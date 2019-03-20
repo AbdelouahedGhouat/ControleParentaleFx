@@ -8,17 +8,21 @@ package viewAdmin;
 import bean.Classe;
 import bean.EcolePrive;
 import helperfx.ClasseFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.ClasseService;
 import service.EcolePriveService;
@@ -128,6 +132,18 @@ public class ClassViewController implements Initializable {
 
     @FXML
     private void Retour(ActionEvent event) {
+         ((Stage) retour.getScene().getWindow()).close();
+        
+          try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+                Stage nextStage = new Stage();
+                nextStage.setScene(new Scene(root1));
+                nextStage.show();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
   

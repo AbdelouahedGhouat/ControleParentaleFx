@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import util.DateUtil;
 
 /**
  *
@@ -138,7 +139,7 @@ public class Evenement implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Evenement[ id=" + id + " ]";
+        return ""+nom+" - "+type+" - "+DateUtil.formateDate("dd-MM-yyyy hh:mm", date);
     }
     
 }

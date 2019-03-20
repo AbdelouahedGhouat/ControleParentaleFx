@@ -35,21 +35,4 @@ public class NoteDevoirFxHelper extends AbstractFxHelper<NoteDevoir> {
     public NoteDevoirFxHelper( TableView<NoteDevoir> table) {
         super(titres, table);
     }
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list != null && rowIndex < list.size()) {
-            NoteDevoir noteDevoir = list.get(rowIndex);
-            if(columnIndex==1){
-                return noteDevoir.getNote();
-            }
-            if(columnIndex==0){
-                return noteDevoir.getEtudient().getNom()+" "+noteDevoir.getEtudient().getPrenom();
-            }
-            
-             else {
-                return super.getValueAt(rowIndex, columnIndex);
-            }
-        }
-        return "";
-    }
 }

@@ -36,5 +36,6 @@
       <TableView fx:id="tab" layoutX="141.0" layoutY="145.0" onMouseClicked="#setParam" prefHeight="111.0" prefWidth="318.0">
         
       </TableView>
+      <Button fx:id="retour" layoutX="21.0" layoutY="361.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
    </children>
 </Pane>

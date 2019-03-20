@@ -14,9 +14,7 @@ public class NotifEventFxHelper extends AbstractFxHelper<NotifEvent> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-           new AbstractFxHelperItem("Nom", "nom"),
-            new AbstractFxHelperItem("Type", "type"),
-            new AbstractFxHelperItem("Date", "date")};
+           new AbstractFxHelperItem("Evenement---Type---Date", "evenement")};
     }
 
     public NotifEventFxHelper(TableView<NotifEvent> table, List<NotifEvent> list) {

@@ -7,6 +7,7 @@ package bean;
  */
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,7 @@ public class Etudiant implements Serializable {
     
     @ManyToOne
     private Classe classe;
+    
     @ManyToOne
     private Parent parent;
 

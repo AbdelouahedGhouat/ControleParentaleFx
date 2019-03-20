@@ -72,7 +72,7 @@ public class TypeEvent implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.TypeEvent[ id=" + id + " ]";
+        return ""+type;
     }
     
 }

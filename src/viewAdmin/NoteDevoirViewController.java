@@ -12,15 +12,20 @@ import bean.Etudiant;
 import bean.Matiere;
 import bean.NoteDevoir;
 import helperfx.NoteDevoirFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import service.ClasseService;
 import service.DevoirService;
 import service.EcolePriveService;
@@ -71,6 +76,8 @@ public class NoteDevoirViewController implements Initializable {
     MatiereService matiereService = new MatiereService();
     DevoirService devoirService = new DevoirService();
     EtudiantService etudiantService = new EtudiantService();
+    @FXML
+    private Button retour;
 
     /**
      * Creates new form NoteView
@@ -81,15 +88,7 @@ public class NoteDevoirViewController implements Initializable {
         initEcoles();
     }
     
-//        devoir.addItemListener((ie) -> {
-//            String item = (String) ie.getItem();
-//            for (Devoir d : devoirs) {
-//                String date = DateUtil.formateDate("DD/MM/YYYY", d.getDate());
-//                if (item.equals("devoir le : " + date)) {
-//                    setHelperList(d);
-//                }
-//            }
-//        });
+
 
     
 
@@ -106,6 +105,21 @@ public class NoteDevoirViewController implements Initializable {
 
     private void setHelperList(Devoir devoir) {
         noteDevoirHelper.setList(noteDevoirService.findByDevoir(devoir));
+    }
+
+    @FXML
+    private void Retour(ActionEvent event) {
+          ((Stage) retour.getScene().getWindow()).close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
    
 

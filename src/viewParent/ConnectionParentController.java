@@ -43,6 +43,7 @@ public class ConnectionParentController implements Initializable {
 
     @FXML
     private void seConnecter(ActionEvent event) {
+        
         Parent p = getParam();
         int i = parentService.connect(p);
         if (i > 0) {
@@ -50,6 +51,7 @@ public class ConnectionParentController implements Initializable {
             Session.updateAttribute(p, "connectedParent");
             AdaptedAlert alert = new AdaptedAlert(AdaptedAlert.AlertType.INFORMATION, null, "Succes", "CONNECTION AVEC SUCCES BIENVENU : " + p.getNom());
             alert.showAndWait();
+            ((Stage) seConnecter.getScene().getWindow()).close();
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
                 javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();

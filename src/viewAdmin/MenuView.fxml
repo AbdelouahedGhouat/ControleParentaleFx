@@ -14,43 +14,35 @@
             <Image url="@../image/img.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="etudiant" layoutX="224.0" layoutY="131.0" mnemonicParsing="false" onAction="#Etudiant" prefHeight="38.0" prefWidth="145.0" text="Gestion des étudiants">
+      <Button fx:id="etudiant" layoutX="24.0" layoutY="263.0" mnemonicParsing="false" onAction="#Etudiant" prefHeight="38.0" prefWidth="156.0" text="Gestion des étudiants">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="event" layoutX="115.0" layoutY="201.0" mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="163.0" text="Gestion des évenement ">
+      <Button fx:id="event" layoutX="313.0" layoutY="194.0" mnemonicParsing="false" onAction="#Event" prefHeight="38.0" prefWidth="163.0" text="Gestion des évenements">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="parent" layoutX="60.0" layoutY="131.0" mnemonicParsing="false" onAction="#parent" prefHeight="38.0" prefWidth="138.0" text="Gestion des parents">
+      <Button fx:id="parent" layoutX="230.0" layoutY="262.0" mnemonicParsing="false" onAction="#parent" prefHeight="38.0" prefWidth="138.0" text="Gestion des parents">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="typeEvent" layoutX="323.0" layoutY="345.0" mnemonicParsing="false" onAction="#TypeEvent" prefHeight="38.0" prefWidth="163.0" text="Gestion des types event ">
+      <Button fx:id="typeEvent" layoutX="218.0" layoutY="335.0" mnemonicParsing="false" onAction="#TypeEvent" prefHeight="38.0" prefWidth="163.0" text="Gestion des types event ">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="devoir" layoutX="324.0" layoutY="201.0" mnemonicParsing="false" onAction="#Devoir" prefHeight="38.0" prefWidth="145.0" text="Gestion des devoirs">
+      <Button fx:id="devoir" layoutX="137.0" layoutY="194.0" mnemonicParsing="false" onAction="#Devoir" prefHeight="38.0" prefWidth="145.0" text="Gestion des devoirs">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="noteDevoir" layoutX="126.0" layoutY="345.0" mnemonicParsing="false" onAction="#NoteDevoir" prefHeight="38.0" prefWidth="162.0" text="Gestion des notes devoir">
+      <Button fx:id="noteDevoir" layoutX="414.0" layoutY="260.0" mnemonicParsing="false" onAction="#NoteDevoir" prefHeight="38.0" prefWidth="163.0" text="Gestion des notes devoir">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="ecole" layoutX="389.0" layoutY="131.0" mnemonicParsing="false" onAction="#Ecole" prefHeight="38.0" prefWidth="180.0" text="Gestion des écoles privées">
+      <Button fx:id="ecole" layoutX="36.0" layoutY="131.0" mnemonicParsing="false" onAction="#Ecole" prefHeight="38.0" prefWidth="180.0" text="Gestion des écoles privées">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="matiere" layoutX="243.0" layoutY="272.0" mnemonicParsing="false" onAction="#Matiere" prefHeight="38.0" prefWidth="145.0" text="Gestion des matiéres">
-         <font>
-            <Font name="Agency FB Bold" size="14.0" />
-         </font></Button>
-      <Button fx:id="notifDevoir" layoutX="421.0" layoutY="271.0" mnemonicParsing="false" onAction="#NotifDevoir" prefHeight="38.0" prefWidth="163.0" text="Gestion des notifs devoir">
-         <font>
-            <Font name="Agency FB Bold" size="14.0" />
-         </font></Button>
-      <Button fx:id="notifEvent" layoutX="48.0" layoutY="272.0" mnemonicParsing="false" onAction="#NotifEvent" prefHeight="38.0" prefWidth="159.0" text="Gestion des notifs event">
+      <Button fx:id="matiere" layoutX="414.0" layoutY="131.0" mnemonicParsing="false" onAction="#Matiere" prefHeight="38.0" prefWidth="145.0" text="Gestion des matiéres">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>
@@ -59,10 +51,11 @@
             <Font name="Agency FB Bold" size="64.0" />
          </font>
       </Label>
-      <Button fx:id="retour" layoutX="24.0" layoutY="416.0" mnemonicParsing="false" onAction="#retour" text="Retour">
+      <Button fx:id="retour" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#Retour" text="Retour">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Button>
+      <Button fx:id="classe" layoutX="245.0" layoutY="130.0" mnemonicParsing="false" onAction="#Classe" prefHeight="38.0" prefWidth="145.0" text="Gestion des classes" />
    </children>
 </Pane>

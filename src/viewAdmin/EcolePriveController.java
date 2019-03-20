@@ -7,16 +7,20 @@ package viewAdmin;
 
 import bean.EcolePrive;
 import helperfx.EcoleFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.EcolePriveService;
 
@@ -32,8 +36,7 @@ public class EcolePriveController implements Initializable {
     @FXML
     private TableView<?> tab;
 
-    
-     List<EcolePrive> ecolePrives;
+    List<EcolePrive> ecolePrives;
     private EcoleFxHelper ecoleFxHelper;
     private EcolePriveService ecolePriveService = new EcolePriveService();
     @FXML
@@ -42,24 +45,27 @@ public class EcolePriveController implements Initializable {
     private Button modifier;
     @FXML
     private Button supprimer;
+    @FXML
+    private Button retour;
+
     /**
      * Initializes the controller class.
      */
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         initHelper();
-    }    
-
-      private void initHelper() {
-        ecolePrives = ecolePriveService.findAll();
-         ecoleFxHelper = new EcoleFxHelper((TableView<EcolePrive>) tab, ecolePrives);
     }
-      
+
+    private void initHelper() {
+        ecolePrives = ecolePriveService.findAll();
+        ecoleFxHelper = new EcoleFxHelper((TableView<EcolePrive>) tab, ecolePrives);
+    }
+
     @FXML
     private void Ajouter(ActionEvent event) {
-         int res = ecolePriveService.creerEcole(nom.getText());
+        int res = ecolePriveService.creerEcole(nom.getText());
         if (res == 1) {
             ecoleFxHelper.setList(ecolePriveService.findAll());
             JOptionPane.showMessageDialog(null, "ECOLE AJOUTER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
@@ -74,15 +80,14 @@ public class EcolePriveController implements Initializable {
             EcolePrive ep = ecoleFxHelper.getSelected();
             ep.setNom(nom.getText());
             ecolePriveService.edit(ep);
-            ecoleFxHelper.setList(ecolePriveService.findAll());
             JOptionPane.showMessageDialog(null, "ECOLE MODIFIER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
-
+            ecoleFxHelper.setList(ecolePriveService.findAll());
         }
     }
 
     @FXML
     private void Supprimer(ActionEvent event) {
-         EcolePrive ep = ecoleFxHelper.getSelected();
+        EcolePrive ep = ecoleFxHelper.getSelected();
         ecolePriveService.remove(ep);
         ecoleFxHelper.setList(ecolePriveService.findAll());
         nom.setText("");
@@ -93,5 +98,20 @@ public class EcolePriveController implements Initializable {
     private void setParam(MouseEvent event) {
         nom.setText(ecoleFxHelper.getSelected().getNom());
     }
-    
+
+    @FXML
+    private void Retour(ActionEvent event) {
+        ((Stage) retour.getScene().getWindow()).close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

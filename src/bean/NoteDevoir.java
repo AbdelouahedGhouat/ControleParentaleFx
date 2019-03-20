@@ -5,13 +5,13 @@ package bean;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import util.DateUtil;
 
 /**
  *
@@ -38,8 +38,6 @@ public class NoteDevoir implements Serializable {
         this.devoir = devoir;
         this.etudient = etudient;
     }
-    
-    
 
     public NoteDevoir(double note, Devoir devoir, Etudiant etudient) {
         this.note = note;
@@ -70,8 +68,6 @@ public class NoteDevoir implements Serializable {
     public void setEtudient(Etudiant etudient) {
         this.etudient = etudient;
     }
-    
-    
 
     public Long getId() {
         return id;
@@ -103,7 +99,7 @@ public class NoteDevoir implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.NoteDevoir[ id=" + id + " ]";
+        return "" + etudient.getNom() + " " + devoir.getMatiere().getNom() + " " + DateUtil.formateDate("dd-MM-yyyy hh:mm", devoir.getDate());
     }
-    
+
 }

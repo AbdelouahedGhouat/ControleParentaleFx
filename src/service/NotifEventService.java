@@ -9,6 +9,7 @@ import bean.Etudiant;
 import bean.Evenement;
 import bean.NotifEvent;
 import java.util.List;
+import util.DateUtil;
 
 /**
  *
@@ -24,8 +25,13 @@ public class NotifEventService extends AbstractFacade<NotifEvent> {
     }
 
     public List<NotifEvent> findByEtdudiant(Long id) {
-        return getEntityManager().createQuery("SELECT ne From NotifEvent ne WHERE ne.etudiant.id=" + id).getResultList();
-
+        List<NotifEvent> notifEvents = getEntityManager().createQuery("SELECT ne From NotifEvent ne WHERE ne.etudiant.id=" + id).getResultList();
+        notifEvents.stream().forEach(d -> {
+            if (d.getDateLecture() != null) {
+                d.setDateLecture(DateUtil.convertFromDateToTimestamp(d.getDateLecture()));
+            }
+        });
+        return notifEvents;
     }
 
     public void creer(Evenement e) {

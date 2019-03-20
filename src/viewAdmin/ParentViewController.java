@@ -7,15 +7,19 @@ package viewAdmin;
 
 import bean.Parent;
 import helperfx.ParentFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.EtudiantService;
 import service.ParentService;
@@ -114,5 +118,16 @@ public class ParentViewController implements Initializable {
 
     @FXML
     private void Retour(ActionEvent event) {
+          ((Stage) retour.getScene().getWindow()).close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

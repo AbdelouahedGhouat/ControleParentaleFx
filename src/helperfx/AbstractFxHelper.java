@@ -14,7 +14,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import util.DaoEngigne;
 
 /**
  *
@@ -88,20 +87,5 @@ public abstract class AbstractFxHelper<T> {
     }
 
    
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list!=null && rowIndex < list.size()) {
-            for (int i = 0; i < abstractFxHelperItem.length; i++) {
-                if (columnIndex == i) {
-                    System.out.println("ana daba f i ==> "+i);
-                    try {
-                        return DaoEngigne.lunchGetterByParamName(list.get(rowIndex), abstractFxHelperItem[i].getAttributeName());
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
-        }
-        return null;
-    }
     
 }

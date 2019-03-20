@@ -9,17 +9,21 @@ import bean.Classe;
 import bean.EcolePrive;
 import bean.Etudiant;
 import helperfx.EtudiantFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import service.ClasseService;
 import service.EcolePriveService;
 import service.EtudiantService;
@@ -85,7 +89,7 @@ public class EtudiantViewController implements Initializable {
     }
 
     @FXML
-    public void initComboClasse() {
+    public void initComboClasse(EcolePrive e) {
 //         classe.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
 //            setHelperList(newValue.getId());
 //        });
@@ -113,14 +117,25 @@ public class EtudiantViewController implements Initializable {
     private void setParam(Etudiant selected) {
         nom.setText(selected.getNom());
         prenom.setText(selected.getPrenom());
-        ecole.getValue().getNom();//setSelectedItem(selected.getClasse().getEcolePrive().getNom());
-        classe.getValue().getEcolePrive().getNom();     //setSelectedItem(selected.getClasse().getNom());
-        parent.getValue(); //setSelectedItem(selected.getParent().getNom());
+        ecole.getValue().getNom();
+        classe.getValue().getEcolePrive().getNom();     
+        parent.getValue(); 
         
        
     }
 
     @FXML
     private void Retour(ActionEvent event) {
+        ((Stage) retour.getScene().getWindow()).close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

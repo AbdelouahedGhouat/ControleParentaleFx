@@ -9,6 +9,7 @@ import bean.Devoir;
 import bean.Matiere;
 import java.util.Date;
 import java.util.List;
+import util.DateUtil;
 
 /**
  *
@@ -21,7 +22,7 @@ public class DevoirService extends AbstractFacade<Devoir> {
     public DevoirService() {
         super(Devoir.class);
     }
-
+    
     public int creerDevoir(Date date, Matiere m) {
         List<Devoir> devoirs = getEntityManager().createQuery("SELECT d FROM Devoir d WHERE d.date='" + date + "' and d.matiere.id=" + m.getId()+ "").getResultList();
         if (devoirs.isEmpty()) {
@@ -36,7 +37,9 @@ public class DevoirService extends AbstractFacade<Devoir> {
     }
 
     public List<Devoir> findByMatiere(Long id) {
-        return getEntityManager().createQuery("SELECT d FROM Devoir d where d.matiere.id=" + id + " ORDER BY d.date DESC").getResultList();
+        List<Devoir> devoirs = getEntityManager().createQuery("SELECT d FROM Devoir d where d.matiere.id=" + id + " ORDER BY d.date DESC").getResultList();
+        devoirs.stream().forEach(d -> { d.setDate(DateUtil.convertFromDateToTimestamp(d.getDate()));});
+        return devoirs;
     }
 
     public void supprimer(Devoir d) {

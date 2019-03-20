@@ -31,4 +31,9 @@ public class TypeEventService extends AbstractFacade<TypeEvent> {
         }
 
     }
+    
+    public List<TypeEvent> findByClasse(Long id){
+        return getEntityManager().createQuery("SELECT t FROM TypeEvent t where t.classe.id=" + id).getResultList();
+    }
+    
 }

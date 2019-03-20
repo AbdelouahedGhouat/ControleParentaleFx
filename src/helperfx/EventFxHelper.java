@@ -35,23 +35,5 @@ public class EventFxHelper extends AbstractFxHelper<Evenement>{
     public EventFxHelper(TableView<Evenement> table ) {
         super(titres, table);
     }
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list != null && rowIndex < list.size()) {
-            Evenement evenement = list.get(rowIndex);
-            if(columnIndex==1){
-                return evenement.getTypeEvent().getType();
-            }
-            if (columnIndex == 2) {
-                Date date = evenement.getDate();
-                if (date!= null) {
-                    return DateUtil.formateDate("dd/MM/yyyy HH:mm", date);
-                }
-            } else {
-                return super.getValueAt(rowIndex, columnIndex);
-            }
-        }
-        return "";
-    }
     
 }

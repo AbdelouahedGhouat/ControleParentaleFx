@@ -115,7 +115,7 @@ public class NotifEvent implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.NotifEvent[ id=" + id + " ]";
+        return ""+etudiant.getNom()+" "+evenement.getNom();
     }
     
 }

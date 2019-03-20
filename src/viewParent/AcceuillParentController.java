@@ -44,7 +44,10 @@ public class AcceuillParentController implements Initializable {
     private ComboBox<Etudiant> etudiant;
     @FXML
     private TableView<NotifEvent> tabE;
-
+    @FXML
+    private Button deconnection;
+    @FXML
+    private Button recherche;
     EtudiantService etudiantService = new EtudiantService();
     NotifDevoirService notifDevoirService = new NotifDevoirService();
     NotifEventService notifEventService = new NotifEventService();
@@ -52,10 +55,7 @@ public class AcceuillParentController implements Initializable {
     NotifEventFxHelper notifEventFxHelper;
     EtudiantFxHelper etudiantFxHelper;
     List<Etudiant> etudiants;
-    @FXML
-    private Button deconnection;
-    @FXML
-    private Button recherche;
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -133,11 +133,15 @@ public class AcceuillParentController implements Initializable {
         List<NotifDevoir> notifDevoirs = notifDevoirService.findByEtudiant(etudiant);
         if (!notifDevoirs.isEmpty()) {
             notifDevoirFxHelper.setList(notifDevoirs);
+        }else{
+            tabD.getItems().clear();
         }
 
         List<NotifEvent> notifEvens = notifEventService.findByEtdudiant(etudiant);
         if (!notifEvens.isEmpty()) {
             notifEventFxHelper.setList(notifEvens);
+        }else{
+            tabE.getItems().clear();
         }
     }
 

@@ -7,16 +7,20 @@ package viewAdmin;
 
 import bean.TypeEvent;
 import helperfx.TypeEventFxHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.TypeEventService;
 
@@ -42,6 +46,8 @@ public class TypeEventViewController implements Initializable {
     TypeEventService typeEventService = new TypeEventService();
     List<TypeEvent> typeEvents;
     TypeEventFxHelper typeEventHelper;
+    @FXML
+    private Button retour;
 
     private void initHelper() {
         typeEvents = typeEventService.findAll();
@@ -93,6 +99,21 @@ public class TypeEventViewController implements Initializable {
         JOptionPane.showMessageDialog(null, "TYPE D'EVENEMENT EST SUPPRIMER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
     
     }                    
+
+    @FXML
+    private void Retour(ActionEvent event) {
+        ((Stage) retour.getScene().getWindow()).close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
 
 }

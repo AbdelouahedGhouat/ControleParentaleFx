@@ -36,8 +36,11 @@ public class GlobaleController implements Initializable {
 
     @FXML
     private void Admin(ActionEvent event) {
+        
+        ((Stage) admin.getScene().getWindow()).close();
+        
           try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/viewAdmin/MenuView.fxml"));
                 javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
                 Stage nextStage = new Stage();
                 nextStage.setScene(new Scene(root1));
@@ -50,8 +53,9 @@ public class GlobaleController implements Initializable {
 
     @FXML
     private void Patentt(ActionEvent event) {
+        ((Stage) parent.getScene().getWindow()).close();
         try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ConnectionParent.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/viewParent/ConnectionParent.fxml"));
                 javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
                 Stage nextStage = new Stage();
                 nextStage.setScene(new Scene(root1));
