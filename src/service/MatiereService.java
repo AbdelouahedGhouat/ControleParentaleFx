@@ -5,6 +5,8 @@
  */
 package service;
 
+import bean.Classe;
+import bean.Etudiant;
 import bean.Matiere;
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class MatiereService extends AbstractFacade<Matiere> {
     
     public List<Matiere> findByClasse(Long id){
         return getEntityManager().createQuery("SELECT m FROM Matiere m where m.classe.id=" + id).getResultList();
+    }
+        public List<Matiere> findByEtudiant( Etudiant e){
+        return getEntityManager().createQuery("SELECT m FROM Matiere m where m.classe.id" + e.getId()).getResultList();
     }
     
 }

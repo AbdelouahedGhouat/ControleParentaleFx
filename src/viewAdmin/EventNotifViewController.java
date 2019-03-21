@@ -49,6 +49,7 @@ public class EventNotifViewController implements Initializable {
     public void initHelper() {
         notifEvents = notifEventService.findByEvent(e.getId());
         eventNotifFxHelper = new EventNotifFxHelper(tab, notifEvents);
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     @FXML

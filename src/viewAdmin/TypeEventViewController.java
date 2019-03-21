@@ -50,9 +50,11 @@ public class TypeEventViewController implements Initializable {
     private Button retour;
 
     private void initHelper() {
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         typeEvents = typeEventService.findAll();
         typeEventHelper = new TypeEventFxHelper(tab, typeEvents);
         typeEventHelper.setList(typeEvents);
+        
 
     }
 

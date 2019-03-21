@@ -55,7 +55,6 @@ public class AcceuillParentController implements Initializable {
     NotifEventFxHelper notifEventFxHelper;
     EtudiantFxHelper etudiantFxHelper;
     List<Etudiant> etudiants;
-    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,11 +64,15 @@ public class AcceuillParentController implements Initializable {
 
     public void initHelper() {
         notifDevoirFxHelper = new NotifDevoirFxHelper(tabD);
+        tabE.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         notifEventFxHelper = new NotifEventFxHelper(tabE);
+        tabD.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     @FXML
     private void Deconnection(ActionEvent event) {
+        ((Stage) deconnection.getScene().getWindow()).close();
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ConnectionParent.fxml"));
             javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
@@ -83,11 +86,6 @@ public class AcceuillParentController implements Initializable {
     }
 
     @FXML
-    private void Recherche(ActionEvent event) {
-        setHelperList(etudiant.getSelectionModel().getSelectedItem().getId());
-    }
-
-    @FXML
     private void tabDevoirClick(MouseEvent event) {
         NotifDevoir notifDevoir = notifDevoirFxHelper.getSelected();
         if (notifDevoir.getDateLecture() == null) {
@@ -95,6 +93,8 @@ public class AcceuillParentController implements Initializable {
             notifDevoirService.edit(notifDevoir);
         }
         Session.updateAttribute(notifDevoir, "notifDevoir");
+        ((Stage) deconnection.getScene().getWindow()).close();
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NotifDevoirParentView.fxml"));
             javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
@@ -116,6 +116,7 @@ public class AcceuillParentController implements Initializable {
             notifEventService.edit(notifEvent);
         }
         Session.updateAttribute(notifEvent, "notifEvent");
+        ((Stage) deconnection.getScene().getWindow()).close();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NotifEventParentView.fxml"));
             javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
@@ -133,14 +134,14 @@ public class AcceuillParentController implements Initializable {
         List<NotifDevoir> notifDevoirs = notifDevoirService.findByEtudiant(etudiant);
         if (!notifDevoirs.isEmpty()) {
             notifDevoirFxHelper.setList(notifDevoirs);
-        }else{
+        } else {
             tabD.getItems().clear();
         }
 
         List<NotifEvent> notifEvens = notifEventService.findByEtdudiant(etudiant);
         if (!notifEvens.isEmpty()) {
             notifEventFxHelper.setList(notifEvens);
-        }else{
+        } else {
             tabE.getItems().clear();
         }
     }

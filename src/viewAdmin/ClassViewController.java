@@ -111,6 +111,7 @@ public class ClassViewController implements Initializable {
   
 
     private void initHelper() {
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         classeFxHelper = new ClasseFxHelper(tab);
 
     }

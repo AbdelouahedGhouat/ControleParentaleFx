@@ -139,7 +139,7 @@ public class Parent implements Serializable {
 
     @Override
     public String toString() {
-        return ""+prenom+""+nom;
+        return ""+nom+" "+prenom;
     }
     
 }

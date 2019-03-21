@@ -41,6 +41,7 @@ public class DevoirService extends AbstractFacade<Devoir> {
         devoirs.stream().forEach(d -> { d.setDate(DateUtil.convertFromDateToTimestamp(d.getDate()));});
         return devoirs;
     }
+    
 
     public void supprimer(Devoir d) {
         notifDevoirService.suppByDevoir(d);

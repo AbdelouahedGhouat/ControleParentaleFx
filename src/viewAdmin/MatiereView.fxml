@@ -36,7 +36,7 @@
          </font>
       </Label>
       <TextField fx:id="nom" layoutX="256.0" layoutY="127.0" />
-      <TableView fx:id="tab" layoutX="161.0" layoutY="203.0" prefHeight="118.0" prefWidth="338.0" />
+      <TableView fx:id="tab" layoutX="161.0" layoutY="203.0" onMouseClicked="#click" prefHeight="118.0" prefWidth="338.0" />
       <Button fx:id="ajouter" layoutX="388.0" layoutY="366.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="27.0" prefWidth="59.0" text="Ajouter">
          <font>
             <Font name="Agency FB Bold" size="14.0" />

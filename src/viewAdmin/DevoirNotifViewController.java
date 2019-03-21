@@ -45,6 +45,7 @@ public class DevoirNotifViewController implements Initializable {
     }
 
     public void initHelper() {
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         notifDevoirs = notifDevoirService.findByDevoir(d.getId());
         devoirNotifFxHelper = new DevoirNotifFxHelper(tab, notifDevoirs);
     }

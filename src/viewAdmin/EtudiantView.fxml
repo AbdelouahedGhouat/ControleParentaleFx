@@ -18,8 +18,8 @@
             <Image url="@../image/img.jpg" />
          </image>
       </ImageView>
-      <ComboBox fx:id="ecole" layoutX="109.0" layoutY="50.0" onAction="#initComboClasse" prefHeight="25.0" prefWidth="100.0" />
-      <ComboBox fx:id="classe" layoutX="302.0" layoutY="50.0" onAction="#initComboParent" prefHeight="25.0" prefWidth="100.0" />
+      <ComboBox fx:id="ecole" layoutX="109.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
+      <ComboBox fx:id="classe" layoutX="302.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
       <ComboBox fx:id="parent" layoutX="513.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" />
       <Label layoutX="50.0" layoutY="54.0" text="Ecole :" textOverrun="CLIP">
          <font>
@@ -34,22 +34,22 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <TableView fx:id="tab" layoutX="112.0" layoutY="202.0" prefHeight="105.0" prefWidth="409.0" />
-      <Button fx:id="ajouter" layoutX="322.0" layoutY="348.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
+      <TableView fx:id="tab" layoutX="144.0" layoutY="202.0" onMouseClicked="#click" prefHeight="105.0" prefWidth="390.0" />
+      <Button fx:id="ajouter" layoutX="322.0" layoutY="348.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="61.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="modifier" layoutX="402.0" layoutY="348.0" mnemonicParsing="false" text="Modifier">
+      <Button fx:id="modifier" layoutX="402.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifier" text="Modifier">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="supprimer" layoutX="485.0" layoutY="348.0" mnemonicParsing="false" text="Supprimer">
+      <Button fx:id="supprimer" layoutX="485.0" layoutY="348.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font>

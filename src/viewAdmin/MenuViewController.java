@@ -192,13 +192,14 @@ public class MenuViewController implements Initializable {
 
     @FXML
     private void Retour(ActionEvent event) {
-        ((Stage) retour.getScene().getWindow()).close();
+       ((Stage) retour.getScene().getWindow()).close();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("viewGlobale/Globale.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/viewGlobale/Globale.fxml"));
             javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
             Stage nextStage = new Stage();
             nextStage.setScene(new Scene(root1));
             nextStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

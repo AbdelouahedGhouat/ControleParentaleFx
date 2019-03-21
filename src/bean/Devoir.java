@@ -98,7 +98,7 @@ public class Devoir implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Devoir[ id=" + id + " ]";
+        return  ""+date;
     }
     
 }

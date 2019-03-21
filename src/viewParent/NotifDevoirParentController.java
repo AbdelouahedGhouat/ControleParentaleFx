@@ -54,7 +54,7 @@ public class NotifDevoirParentController implements Initializable {
             classe.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getClasse().getNom());
             ecole.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getClasse().getEcolePrive().getNom());
             matiere.setText(notifDevoir.getNotedevoir().getDevoir().getMatiere().getNom());
-           dateD.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifDevoir.getNotedevoir().getDevoir().getDate()));
+            dateD.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifDevoir.getNotedevoir().getDevoir().getDate()));
             note.setText(notifDevoir.getNotedevoir().getNote() + "");
             Jarea.setText(notifDevoir.getDescription());
 
@@ -70,16 +70,17 @@ public class NotifDevoirParentController implements Initializable {
         NotifDevoir notifDevoir = (NotifDevoir) Session.getAttribut("notifDevoir");
         notifDevoir.setDescription(Jarea.getText());
         notifDevoirService.edit(notifDevoir);
+        ((Stage) valider.getScene().getWindow()).close();
         try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
-                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
-                Stage nextStage = new Stage();
-                nextStage.setScene(new Scene(root1));
-                nextStage.show();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

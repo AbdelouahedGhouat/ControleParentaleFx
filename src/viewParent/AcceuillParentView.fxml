@@ -25,11 +25,6 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <Button fx:id="recherche" layoutX="445.0" layoutY="54.0" mnemonicParsing="false" onAction="#Recherche" prefHeight="32.0" prefWidth="136.0" text="Recherche" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font name="Agency FB Bold" size="16.0" />
-         </font>
-         </Button>
       <Label layoutX="40.0" layoutY="139.0" text="Listes des devoirs :">
          <font>
             <Font name="Algerian" size="12.0" />

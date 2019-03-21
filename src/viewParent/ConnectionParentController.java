@@ -40,6 +40,8 @@ public class ConnectionParentController implements Initializable {
     private Button seConnecter;
 
     ParentService parentService = new ParentService();
+    @FXML
+    private Button retour;
 
     @FXML
     private void seConnecter(ActionEvent event) {
@@ -83,6 +85,21 @@ public class ConnectionParentController implements Initializable {
         p.setCin(cin.getText());
         p.setPassword(password.getText());
         return p;
+    }
+
+    @FXML
+    private void Retour(ActionEvent event) {
+        ((Stage) seConnecter.getScene().getWindow()).close();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/viewGlobale/Globale.fxml"));
+                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+                Stage nextStage = new Stage();
+                nextStage.setScene(new Scene(root1));
+                nextStage.show();
+                Platform.setImplicitExit(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
 }

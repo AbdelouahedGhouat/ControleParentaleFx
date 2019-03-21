@@ -92,11 +92,12 @@ public class EventViewController implements Initializable {
         initHelper();
         initTime();
         initComboTypeEvent();
+        initSelected();
     }
 
     private void initHelper() {
         eventFxHelper = new EventFxHelper(tab);
-
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void initSelected() {
@@ -131,7 +132,6 @@ public class EventViewController implements Initializable {
 
     public void initComboTypeEvent() {
         typeEvents = typeEventService.findAll();
-        // type.getItems().clear();
         type.getItems().addAll(typeEvents);
     }
 
@@ -184,10 +184,10 @@ public class EventViewController implements Initializable {
             d.setHours(Integer.valueOf(t.substring(0, 2)));
             d.setMinutes(Integer.valueOf(t.substring(3)));
             Evenement e = new Evenement(nom.getText(), DateUtil.getSqlDateTime(d), classe.getSelectionModel().getSelectedItem());
-
             int res = eventService.creerEvent(nom.getText(), DateUtil.getSqlDateTime(d), classe.getSelectionModel().getSelectedItem(), desc.getText(), type.getSelectionModel().getSelectedItem());
             if (res == 1) {
-                setHelperList(classe.getSelectionModel().getSelectedItem().getId());
+                tab.getItems().set(tab.getSelectionModel().getSelectedIndex(), e);
+
                 JOptionPane.showMessageDialog(null, "EVENEMENT AJOUTER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "EVENEMENT EXIST DEJA ", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -210,8 +210,6 @@ public class EventViewController implements Initializable {
             evenement.setDate(DateUtil.convertFromDateToTimestamp(evenement.getDate()));
             JOptionPane.showMessageDialog(null, " EVENEMENT EST MODIFIER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
             tab.getItems().set(tab.getSelectionModel().getSelectedIndex(), evenement);
-            //setHelperList(classe.getSelectionModel().getSelectedItem().getId());
-
         }
     }
 

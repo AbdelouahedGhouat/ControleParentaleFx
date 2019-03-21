@@ -42,7 +42,9 @@ public class EtudiantService extends AbstractFacade<Etudiant> {
         return getEntityManager().createQuery("SELECT e FROM Etudiant e WHERE e.classe.id=" + c.getId()).getResultList();
     }
     
-    
+     public List<Etudiant> findByClasse(Long id){
+        return getEntityManager().createQuery("SELECT m FROM Matiere m where m.classe.id=" + id).getResultList();
+    }
     
      public List<Etudiant> findByParent(Long id){
        return getEntityManager().createQuery("SELECT e FROM Etudiant e WHERE e.parent.id="+ id).getResultList();

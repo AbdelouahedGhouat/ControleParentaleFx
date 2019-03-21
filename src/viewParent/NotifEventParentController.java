@@ -50,17 +50,17 @@ public class NotifEventParentController implements Initializable {
     NotifEventService notifEventService = new NotifEventService();
 
     public void initInfo() {
-       NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
+        NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
         if (notifEvent != null) {
             etudiant.setText(notifEvent.getEtudiant().getNom() + " " + notifEvent.getEtudiant().getPrenom());
             classe.setText(notifEvent.getEvenement().getClasse().getNom());
             ecole.setText(notifEvent.getEvenement().getClasse().getEcolePrive().getNom());
             nomE.setText(notifEvent.getEvenement().getNom());
             dateE.setText(DateUtil.formateDate("YYYY-MM-dd HH:mm", notifEvent.getEvenement().getDate()));
-            type.setText(notifEvent.getEvenement().getTypeEvent().getType()+ "");
+            type.setText(notifEvent.getEvenement().getTypeEvent().getType() + "");
             descParent.setText(notifEvent.getDescription());
             descEvent.setText(notifEvent.getEvenement().getDescription());
-            
+
         }
     }
 
@@ -73,16 +73,18 @@ public class NotifEventParentController implements Initializable {
         NotifEvent notifEvent = (NotifEvent) Session.getAttribut("notifEvent");
         notifEvent.setDescription(descParent.getText());
         notifEventService.edit(notifEvent);
+        ((Stage) valider.getScene().getWindow()).close();
+
         try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
-                javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
-                Stage nextStage = new Stage();
-                nextStage.setScene(new Scene(root1));
-                nextStage.show();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AcceuillParentView.fxml"));
+            javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
+            Stage nextStage = new Stage();
+            nextStage.setScene(new Scene(root1));
+            nextStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

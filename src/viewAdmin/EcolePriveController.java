@@ -51,7 +51,6 @@ public class EcolePriveController implements Initializable {
     /**
      * Initializes the controller class.
      */
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -61,6 +60,7 @@ public class EcolePriveController implements Initializable {
     private void initHelper() {
         ecolePrives = ecolePriveService.findAll();
         ecoleFxHelper = new EcoleFxHelper((TableView<EcolePrive>) tab, ecolePrives);
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     @FXML
@@ -81,7 +81,7 @@ public class EcolePriveController implements Initializable {
             ep.setNom(nom.getText());
             ecolePriveService.edit(ep);
             JOptionPane.showMessageDialog(null, "ECOLE MODIFIER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
-            ecoleFxHelper.setList(ecolePriveService.findAll());
+             ecoleFxHelper.setList(ecolePriveService.findAll());
         }
     }
 

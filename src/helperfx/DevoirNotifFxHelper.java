@@ -1,12 +1,10 @@
 package helperfx;
 
 import bean.NotifDevoir;
-import java.util.Date;
 
 import java.util.List;
 
 import javafx.scene.control.TableView;
-import util.DateUtil;
 
 public class DevoirNotifFxHelper extends AbstractFxHelper<NotifDevoir> {
 
@@ -15,7 +13,7 @@ public class DevoirNotifFxHelper extends AbstractFxHelper<NotifDevoir> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("Etudiant  Matiere ", "notedevoir"),
+            new AbstractFxHelperItem("Etudiant-----Matiere-----Date ", "notedevoir"),
             new AbstractFxHelperItem("Description ", "description"),
             new AbstractFxHelperItem("Date Lecture de devoir ", "dateLecture")};
     }

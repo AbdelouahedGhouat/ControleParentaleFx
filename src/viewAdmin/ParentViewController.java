@@ -57,6 +57,7 @@ public class ParentViewController implements Initializable {
     EtudiantService etudiantService = new EtudiantService();
 
     public void initHelper() {
+        tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         parentFxHelper = new ParentFxHelper(tab, parentService.findAll());
     }
 

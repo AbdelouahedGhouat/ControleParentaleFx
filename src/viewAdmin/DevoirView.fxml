@@ -34,7 +34,7 @@
          <font>
             <Font name="Algerian" size="12.0" />
          </font></Label>
-      <TableView fx:id="tab" layoutX="187.0" layoutY="204.0" onMouseClicked="#click" prefHeight="107.0" prefWidth="287.0" />
+      <TableView fx:id="tab" layoutX="193.0" layoutY="204.0" onMouseClicked="#click" prefHeight="107.0" prefWidth="255.0" />
       <Button fx:id="ajouter" layoutX="267.0" layoutY="348.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="27.0" prefWidth="69.0" text="Ajouter" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Agency FB Bold" size="15.0" />
