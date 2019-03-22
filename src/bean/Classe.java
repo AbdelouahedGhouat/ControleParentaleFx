@@ -6,8 +6,6 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +24,7 @@ public class Classe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private EcolePrive ecolePrive;
 
     public Classe() {

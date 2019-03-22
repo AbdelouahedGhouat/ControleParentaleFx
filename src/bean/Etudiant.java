@@ -120,6 +120,6 @@ public class Etudiant implements Serializable {
 
      @Override
     public String toString() {
-        return ""+prenom;
+        return ""+nom+" "+prenom;
     }
 }

@@ -81,7 +81,7 @@ public class EcolePriveController implements Initializable {
             ep.setNom(nom.getText());
             ecolePriveService.edit(ep);
             JOptionPane.showMessageDialog(null, "ECOLE MODIFIER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
-             ecoleFxHelper.setList(ecolePriveService.findAll());
+            ecoleFxHelper.setList(ecolePriveService.findAll());
         }
     }
 

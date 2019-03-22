@@ -22,7 +22,6 @@ public class EventFxHelper extends AbstractFxHelper<Evenement>{
         titres = new AbstractFxHelperItem[]{
             
              new AbstractFxHelperItem("Nom d'evenement ", "nom"),
-             new AbstractFxHelperItem("Type d'evenements ", "type"), 
              new AbstractFxHelperItem("Date d'Evenements ", "date")  };
             
     }

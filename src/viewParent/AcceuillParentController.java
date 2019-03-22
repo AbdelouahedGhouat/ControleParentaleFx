@@ -46,8 +46,6 @@ public class AcceuillParentController implements Initializable {
     private TableView<NotifEvent> tabE;
     @FXML
     private Button deconnection;
-    @FXML
-    private Button recherche;
     EtudiantService etudiantService = new EtudiantService();
     NotifDevoirService notifDevoirService = new NotifDevoirService();
     NotifEventService notifEventService = new NotifEventService();
@@ -146,12 +144,11 @@ public class AcceuillParentController implements Initializable {
         }
     }
 
-    @FXML
     public void initComboBox1() {
         Parent p = (Parent) Session.getAttribut("connectedParent");
         etudiant.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             setHelperList(newValue.getId());
-        });
+           });     
         etudiants = etudiantService.findByParent(p.getCin());
         etudiant.getItems().clear();
         etudiant.getItems().addAll(etudiants);

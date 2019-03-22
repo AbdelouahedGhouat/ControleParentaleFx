@@ -151,7 +151,7 @@ public class EventViewController implements Initializable {
 
     @FXML
     private void change(ActionEvent event) throws IOException {
-
+        ((Stage) retour.getScene().getWindow()).close();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             javafx.scene.Parent root1 = (javafx.scene.Parent) fxmlLoader.load();
@@ -187,7 +187,6 @@ public class EventViewController implements Initializable {
             int res = eventService.creerEvent(nom.getText(), DateUtil.getSqlDateTime(d), classe.getSelectionModel().getSelectedItem(), desc.getText(), type.getSelectionModel().getSelectedItem());
             if (res == 1) {
                 tab.getItems().set(tab.getSelectionModel().getSelectedIndex(), e);
-
                 JOptionPane.showMessageDialog(null, "EVENEMENT AJOUTER AVEC SUCCES ", "info", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "EVENEMENT EXIST DEJA ", "ERROR", JOptionPane.ERROR_MESSAGE);
